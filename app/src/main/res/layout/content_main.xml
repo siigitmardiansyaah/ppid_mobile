@@ -234,7 +234,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Lihat Permohonannya Yang Telah Anda Ajukan, \n dan Cek Status Permohanannya "
+                            android:text="Lihat Permohonannya Yang Telah Anda Ajukan, \ndan Cek Status Permohanannya "
                             android:textColor="@color/miniDescription"
                             android:textSize="15sp"
                             android:textStyle="bold"
