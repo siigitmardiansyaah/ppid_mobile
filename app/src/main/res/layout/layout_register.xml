@@ -1,0 +1,155 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginTop="20dp"
+    android:layout_marginBottom="20dp"
+    android:background="@color/white"
+    android:elevation="12dp"
+    app:cardBackgroundColor="@android:color/transparent"
+    app:cardCornerRadius="100dp"
+    app:cardElevation="150dp">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:adjustViewBounds="true"
+            android:cropToPadding="true"
+            android:src="@drawable/logo_login" />
+
+        <TextView
+            style="@style/viewParent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="Register"
+            android:textColor="@color/blackTextColor"
+            android:textSize="@dimen/headerTextSize"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputName"
+            style="@style/parent.TextLayout"
+            android:textColorHint="@color/blackTextColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/signup_text_margin_top">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextName"
+                style="@style/modifiedEditText"
+                android:hint="Nama"
+                android:inputType="textPersonName"
+                android:maxLines="1"
+                android:textColor="@color/blackTextColor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputMobile"
+            style="@style/parent.TextLayout"
+            android:textColorHint="@color/blackTextColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/signup_text_margin_top">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextEmail1"
+                style="@style/modifiedEditText"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:textColor="@color/blackTextColor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputEmail"
+            style="@style/parent.TextLayout"
+            android:textColorHint="@color/blackTextColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/signup_text_margin_top">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextMobile"
+                style="@style/modifiedEditText"
+                android:hint="No Telepon"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:textColor="@color/blackTextColor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputPassword"
+            style="@style/parent.TextLayout"
+            android:textColorHint="@color/blackTextColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:passwordToggleEnabled="true"
+            android:layout_marginTop="@dimen/signup_text_margin_top">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextPassword"
+                style="@style/modifiedEditText"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:textColor="@color/blackTextColor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputPasswordConfirm"
+            style="@style/parent.TextLayout"
+            android:textColorHint="@color/blackTextColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:passwordToggleEnabled="true"
+            android:layout_marginTop="@dimen/signup_text_margin_top">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextPasswordConfirm"
+                style="@style/modifiedEditText"
+                android:hint="Konfirmasi Password"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:textColor="@color/blackTextColor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/btn_regis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:src="@drawable/ic_login_button" />
+
+        <TextView
+            android:id="@+id/txt_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:clickable="true"
+            android:text="Sudah Punya Akun ? Silahkan Login di Sini"
+            android:textAlignment="center"
+            android:textColor="@color/blackTextColor"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

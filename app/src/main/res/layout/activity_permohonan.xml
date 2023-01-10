@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    style="@style/loginParent"
+    tools:context=".Permohonan">
+    <ScrollView
+        style="@style/parent">
+
+        <RelativeLayout
+            style="@style/parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:weightSum="12">
+
+                <LinearLayout
+                    style="@style/parent"
+                    android:background="@drawable/login_shape_bk"
+                    android:orientation="vertical"
+                    android:layout_weight="3">
+
+                    <ImageView
+                        style="@style/parent"
+                        android:background="@drawable/ic_login_bk"
+                        android:contentDescription="login background" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:orientation="vertical"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp">
+
+
+                <ImageView
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:src="@drawable/logo_login"
+                    android:layout_marginTop="40dp"/>
+
+                <androidx.cardview.widget.CardView
+                    style="@style/loginCard"
+                    app:cardCornerRadius="20dp"
+                    android:elevation="5dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/loginViewsMargin"
+                    android:layout_marginBottom="@dimen/loginViewsMargin"
+                    android:background="@color/whiteCardColor">
+
+                    <LinearLayout
+                        style="@style/linearParent"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/loginViewsMargin">
+
+                        <TextView
+                            style="@style/headerTextPrimary"
+                            android:text="Form Permohonan"
+                            android:layout_marginTop="@dimen/loginViewsMargin"/>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/signup_text_margin_top">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/nama_pemohon"
+                                style="@style/modifiedEditText"
+                                android:inputType="textPersonName"
+                                android:maxLines="1"
+                                android:hint="Nama Pemohon"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/signup_text_margin_top">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/alamat_pemohon"
+                                style="@style/modifiedEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="80dp"
+                                android:inputType="text|textMultiLine"
+                                android:maxLines="5"
+                                android:hint="Alamat Pemohon"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/signup_text_margin_top">
+                            <com.google.android.material.textfield.TextInputEditText
+                                style="@style/modifiedEditText"
+                                android:id="@+id/nomor_pemohon"
+                                android:inputType="phone"
+                                android:maxLines="1"
+                                android:hint="Nomor Pemohon"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/signup_text_margin_top">
+                            <com.google.android.material.textfield.TextInputEditText
+                                style="@style/modifiedEditText"
+                                android:id="@+id/email_pemohon"
+                                android:hint="Email Pemohon"
+                                android:maxLines="1"
+                                android:inputType="textEmailAddress"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/signup_text_margin_top">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/informasi_pemohon"
+                                style="@style/modifiedEditText"
+                                android:inputType="text"
+                                android:maxLines="2"
+                                android:hint="Informasi yang di butuhkan"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/signup_text_margin_top">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/alasan_pemohon"
+                                style="@style/modifiedEditText"
+                                android:inputType="textPersonName"
+                                android:maxLines="5"
+                                android:hint="Alasan Permohonan Informasi"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/signup_text_margin_top">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/nama_pengguna"
+                                style="@style/modifiedEditText"
+                                android:inputType="textPersonName"
+                                android:maxLines="1"
+                                android:hint="Nama Pengguna Informasi"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/signup_text_margin_top">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/alamat_pengguna"
+                                style="@style/modifiedEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="80dp"
+                                android:inputType="text|textMultiLine"
+                                android:maxLines="5"
+                                android:hint="Alamat Pengguna Informasi"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/signup_text_margin_top">
+                            <com.google.android.material.textfield.TextInputEditText
+                                style="@style/modifiedEditText"
+                                android:id="@+id/nomor_pengguna"
+                                android:inputType="phone"
+                                android:maxLines="1"
+                                android:hint="Nomor Pengguna Informasi"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/signup_text_margin_top">
+                            <com.google.android.material.textfield.TextInputEditText
+                                style="@style/modifiedEditText"
+                                android:id="@+id/email_pengguna"
+                                android:hint="Email Pengguna Informasi"
+                                android:maxLines="1"
+                                android:inputType="textEmailAddress"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/signup_text_margin_top">
+                            <com.google.android.material.textfield.TextInputEditText
+                                style="@style/modifiedEditText"
+                                android:id="@+id/tujuan_pengguna"
+                                android:hint="Tujuan Pengguna Informasi"
+                                android:maxLines="1"
+                                android:inputType="textPersonName"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <Button
+                            android:id="@+id/btn_simpan"
+                            style="@style/loginButton"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:text="SIMPAN" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/btn_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="10dp"
+                android:src="@android:drawable/ic_menu_close_clear_cancel" />
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
+
+
