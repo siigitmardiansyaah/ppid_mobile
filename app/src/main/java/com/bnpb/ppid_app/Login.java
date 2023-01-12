@@ -52,33 +52,41 @@ public class Login extends AppCompatActivity {
                 email = editTextEmail.getText().toString();
                 password = editTextPassword.getText().toString();
                 apiInterface = ApiClient.getClient().create(ApiInterface.class);
-                Call<ResponseData> loginCall = apiInterface.loginResponse(email,password);
-                loginCall.enqueue(new Callback<ResponseData>() {
-                    @Override
-                    public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
-                        if(response.isSuccessful() && response.body().isError() == false){
+                if(email.length() < 1 && password.length() < 1) {
+                    Toast.makeText(Login.this,"Kedua Kolom Harus Di Isi", Toast.LENGTH_LONG).show();
+                    btn_login.setEnabled(true);
+                }else if(email.length() < 1 || password.length() < 1) {
+                    Toast.makeText(Login.this,"Kolom Tidak Boleh Kosong", Toast.LENGTH_LONG).show();
+                    btn_login.setEnabled(true);
+                }else{
+                    Call<ResponseData> loginCall = apiInterface.loginResponse(email,password);
+                    loginCall.enqueue(new Callback<ResponseData>() {
+                        @Override
+                        public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
+                            if(response.isSuccessful() && response.body().isError() == false){
 
-                            // Ini untuk menyimpan sesi
-                            sessionManager = new SessionManager(Login.this);
-                            LoginData loginData = response.body().getLogin();
-                            sessionManager.createLoginSession(loginData);
+                                // Ini untuk menyimpan sesi
+                                sessionManager = new SessionManager(Login.this);
+                                LoginData loginData = response.body().getLogin();
+                                sessionManager.createLoginSession(loginData);
 
-                            //Ini untuk pindah
-                            Toast.makeText(Login.this,"Selamat Datang " + response.body().getLogin().getUser_name(), Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(Login.this, MainActivity.class);
-                            startActivity(intent);
-                            btn_login.setEnabled(true);
-                        } else {
-                            Toast.makeText(Login.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
+                                //Ini untuk pindah
+                                Toast.makeText(Login.this,"Selamat Datang " + response.body().getLogin().getUser_name(), Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(Login.this, MainActivity.class);
+                                startActivity(intent);
+                                btn_login.setEnabled(true);
+                            } else {
+                                Toast.makeText(Login.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
+                                btn_login.setEnabled(true);
+                            }
+                        }
+                        @Override
+                        public void onFailure(Call<ResponseData> call, Throwable t) {
+//                        Toast.makeText(Login.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                             btn_login.setEnabled(true);
                         }
-                    }
-                    @Override
-                    public void onFailure(Call<ResponseData> call, Throwable t) {
-//                        Toast.makeText(Login.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                        btn_login.setEnabled(true);
-                    }
-                });
+                    });
+                }
             }
         });
     }

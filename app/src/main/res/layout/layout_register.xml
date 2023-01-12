@@ -144,7 +144,7 @@
             android:clickable="true"
             android:text="Sudah Punya Akun ? Silahkan Login di Sini"
             android:textAlignment="center"
-            android:textColor="@color/blackTextColor"
+            android:textColor="@color/purple_700"
             android:textSize="12sp"
             android:textStyle="bold" />
 

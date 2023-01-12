@@ -52,7 +52,13 @@ public class Register extends AppCompatActivity {
                 email = editTextEmail.getText().toString();
                 no_hp = editTextMobile.getText().toString();
                 apiInterface = ApiClient.getClient().create(ApiInterface.class);
-                if(password.equals(password1)) {
+                if(nama.length() < 1 && email.length() < 1 && no_hp.length() < 1 && password.length() < 1 && password1.length() < 1 ) {
+                    Toast.makeText(Register.this,"Semua Kolom Harus Di Isi", Toast.LENGTH_LONG).show();
+                    btn_regis.setEnabled(true);
+                }else if(nama.length() < 1 || email.length() < 1 || no_hp.length() < 1 || password.length() < 1 || password1.length() < 1 ){
+                    Toast.makeText(Register.this,"Kolom Harus Di Isi", Toast.LENGTH_LONG).show();
+                    btn_regis.setEnabled(true);
+                }else if(password.equals(password1)) {
                     Call<ResponseData> loginCall = apiInterface.regisResponse(nama,email,no_hp,password);
                     loginCall.enqueue(new Callback<ResponseData>() {
                         @Override

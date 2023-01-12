@@ -68,29 +68,41 @@ public class Permohonan extends AppCompatActivity {
                 email_pengguna1 = email_pengguna.getText().toString();
                 tujuan_pengguna1 = tujuan_pengguna.getText().toString();
                 apiInterface = ApiClient.getClient().create(ApiInterface.class);
-                Call<ResponseData> loginCall = apiInterface.permohonanResponse(iduser,nama_pemohon1,alamat_pemohon1,nomor_pemohon1,
-                        email_pemohon1,informasi_pemohon1,alasan_pemohon1,nama_pengguna1,alamat_pengguna1,nomor_pengguna1,
-                        email_pengguna1,tujuan_pengguna1 );
-                loginCall.enqueue(new Callback<ResponseData>() {
-                    @Override
-                    public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
-                        if(response.isSuccessful() && response.body().isError() == false){
+                if(nama_pemohon1.length() < 1 && alamat_pemohon1.length() < 1 && nomor_pemohon1.length() < 1 && nomor_pemohon1.length() < 1 && email_pemohon1.length() < 1 &&
+                informasi_pemohon1.length() < 1 && alasan_pemohon1.length() < 1 && nama_pengguna1.length() < 1 && alamat_pengguna1.length() < 1 && nomor_pengguna1.length() < 1
+                && email_pengguna1.length() < 1 && tujuan_pengguna1.length() < 1 && tujuan_pengguna1.length() < 1) {
+                    Toast.makeText(Permohonan.this,"Semua Kolom Harus Di Isi", Toast.LENGTH_LONG).show();
+                    btn_simpan.setEnabled(true);
+                } else if(nama_pemohon1.length() < 1 || alamat_pemohon1.length() < 1 || nomor_pemohon1.length() < 1 || nomor_pemohon1.length() < 1 || email_pemohon1.length() < 1 &&
+                        informasi_pemohon1.length() < 1 || alasan_pemohon1.length() < 1 || nama_pengguna1.length() < 1 || alamat_pengguna1.length() < 1 || nomor_pengguna1.length() < 1
+                        && email_pengguna1.length() < 1 || tujuan_pengguna1.length() < 1 || tujuan_pengguna1.length() < 1) {
+                    Toast.makeText(Permohonan.this,"Kolom Harus Di Isi", Toast.LENGTH_LONG).show();
+                    btn_simpan.setEnabled(true);
+                }else{
+                    Call<ResponseData> loginCall = apiInterface.permohonanResponse(iduser,nama_pemohon1,alamat_pemohon1,nomor_pemohon1,
+                            email_pemohon1,informasi_pemohon1,alasan_pemohon1,nama_pengguna1,alamat_pengguna1,nomor_pengguna1,
+                            email_pengguna1,tujuan_pengguna1 );
+                    loginCall.enqueue(new Callback<ResponseData>() {
+                        @Override
+                        public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
+                            if(response.isSuccessful() && response.body().isError() == false){
 
-                            Toast.makeText(Permohonan.this,response.body().getMessage(), Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(Permohonan.this, ListPermohonan.class);
-                            startActivity(intent);
-                            btn_simpan.setEnabled(true);
-                        } else {
-                            Toast.makeText(Permohonan.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
+                                Toast.makeText(Permohonan.this,response.body().getMessage(), Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(Permohonan.this, ListPermohonan.class);
+                                startActivity(intent);
+                                btn_simpan.setEnabled(true);
+                            } else {
+                                Toast.makeText(Permohonan.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
+                                btn_simpan.setEnabled(true);
+                            }
+                        }
+                        @Override
+                        public void onFailure(Call<ResponseData> call, Throwable t) {
+//                        Toast.makeText(Login.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                             btn_simpan.setEnabled(true);
                         }
-                    }
-                    @Override
-                    public void onFailure(Call<ResponseData> call, Throwable t) {
-//                        Toast.makeText(Login.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                        btn_simpan.setEnabled(true);
-                    }
-                });
+                    });
+                }
             }
         });
 
